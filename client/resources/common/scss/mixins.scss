@@ -1,0 +1,23 @@
+@mixin flex-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-align-item-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin bg-image-contain($imageUrl) {
+  background-image: url($imageUrl);
+  background-size: contain;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+@mixin single-line-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

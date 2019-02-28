@@ -1,0 +1,65 @@
+@import './reset.scss';
+// @import './article.scss';
+// @import './dialog.scss';
+@import './toast.scss';
+@import './variables.scss';
+@import './keyframes.scss';
+@import '../../../../node_modules/highlight.js/styles/atom-one-dark.css';
+
+@font-face {
+  font-family: 'MathJax_Main';
+  src: url(../../common/fonts/MathJax_Main-Regular.woff);
+}
+
+@font-face {
+  font-family: 'Meta-font';
+  src: url(../../common/fonts/meta-font.ttf);
+}
+
+@font-face {
+  font-family: 'PingFangSC';
+  src: url(../../common/fonts/PingFang-SC-Regular.ttf);
+}
+
+
+/* loading CSS */
+.loading {
+  padding: 25rem 0;
+  .loading-text {
+    display: block;
+    line-height: 1.25rem;
+    font-size: .875rem;
+    text-align: center;
+    font-family: $article-font-family;
+    color: $active-font-color;
+  }
+}
+
+/* No Match Route Component CSS */
+.no-match-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  z-index: 10;
+  .no-match-page-main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    .title {
+      font-weight: normal;
+      font-size: 1.75rem;
+      text-align: center;
+      color: $article-font-color;
+      font-family: $article-font-family;
+    }
+  }
+}
+
+#text-width {
+  display: inline-block;
+  color: transparent;
+}

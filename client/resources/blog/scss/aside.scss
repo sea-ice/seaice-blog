@@ -1,0 +1,134 @@
+@import "../../common/scss/variables.scss";
+@import "../../common/scss/mixins.scss";
+
+.app-aside {
+  // position: absolute;
+  // top: 0;
+  // right: .9375rem;
+  width: 17.5rem;
+  // margin-left: -22.8125rem;
+  .search-input-wrapper {
+    position: relative;
+    width: 100%;
+    height: 2.375rem;
+    border: 1px solid $color-dark-gray;
+    &.show-close-button {
+      input {
+        padding-right: 4.125rem !important;
+      }
+      .search-button {
+        transform: translate(-1.875rem, -50%) !important;
+      }
+    }
+    input[type=text] {
+      width: 100%;
+      margin-top: 0.3125rem;
+      outline: none;
+      line-height: 1.75rem;
+      font-size: 1rem;
+      font-family: $title-font-family;
+      padding-left: .5rem;
+      padding-right: 2.25rem;
+      border: none;
+      background-color: $app-wrapper-bgcolor;
+      box-sizing: border-box;
+    }
+    .button {
+      // display: block;
+      position: absolute;
+      padding: .375rem;
+      top: 50%;
+      right: 0;
+      transform: translate(0, -50%);
+      &.search-button {
+        transition: transform .3s linear;
+        background-color: white;
+        z-index: 10;
+      }
+      i {
+        display: block;
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+    .search-button i {
+      @include bg-image-contain('../icons/search.svg');
+    }
+    .close-button i {
+      @include bg-image-contain('../icons/close.svg');
+    }
+  }
+  .app-aside-part {
+    margin-top: .625rem;
+    h2 {
+      font-family: $title-font-family;
+      font-size: 1.125rem;
+      line-height: 2rem;
+    }
+    .app-aside-content {
+      padding: 0 .625rem;
+      &.life-part {
+        .github-button {
+          @include flex-align-item-center;
+          justify-content: center;
+          border: 1px solid #8a8a8a;
+          width: 100%;
+          padding: .375rem 0;
+          color: #8a8a8a;
+          text-align: center;
+          border-radius: .25rem;
+          margin: .625rem auto .3125rem;
+          .github-icon {
+            display: block;
+            width: 1.5rem;
+            height: 1.5rem;
+            @include bg-image-contain("../icons/github.svg");
+            margin-right: .5rem;
+          }
+          .github-button-text {
+            line-height: 1.75rem;
+            font-size: 1.125rem;
+            font-family: $title-font-family;
+          }
+        }
+      }
+
+      &.attention-part, &.friends-part {
+        font-family: $article-font-family;
+        a {
+          display: block;
+          line-height: 1.75rem;
+          color: $link-font-color;
+        }
+      }
+    }
+    .hot-articles-part {
+      width: 100%;
+      thead {
+        th {
+          white-space: nowrap;
+        }
+      }
+      tbody {
+        td {
+          font-size: .875rem;
+          .hot-article-title {
+            @include single-line-ellipsis;
+            width: 14.6rem;
+            color: $link-font-color;
+            line-height: 1.5rem;
+            font-family: $title-font-family;
+          }
+          .visit-count {
+            display: block;
+            width: 3.125rem;
+            font-family: $meta-font-family;
+            line-height: 1.5rem;
+            text-align: center;
+            color: $color-dark-gray;
+          }
+        }
+      }
+    }
+  }
+}

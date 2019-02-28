@@ -1,0 +1,117 @@
+@import '../../common/scss/mixins.scss';
+@import '../../common/scss/variables.scss';
+
+@keyframes bounce {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  10% {
+    transform: translate(0px, 2px) scale(0.9);
+  }
+  50% {
+    transform: translate(0px, -7px) scale(1.11547);
+  }
+  90% {
+    transform: translate(0px, 4px) scale(1.11547);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1.11547);
+  }
+}
+
+.tags-main {
+  & > div {
+    width: 100%;
+  }
+  svg {
+    g {
+      cursor: pointer;
+      transform-origin: var(--transform-origin);
+      &:not(.active):hover {
+        animation-name: bounce;
+        animation-duration: .3s;
+        animation-timing-function: cubic-bezier(.4, 0, .2, 1);
+        transform: translate(0px, 0px) scale(1.11547);
+      }
+      text {
+        font-family: $title-font-family;
+        font-size: 1.25rem;
+      }
+      .tag-count {
+        font-size: 2rem;
+        font-size: $title-font-family;
+      }
+    }
+  }
+  .tags-count-wrapper {
+    display: flex;
+    align-items: center;
+    padding: 1.25rem 6.5625rem;
+    .line {
+      display: block;
+      flex-grow: 1;
+      height: 1px;
+      background-color: $color-light-gray;
+    }
+    h2 {
+      position: relative;
+      font-family: $meta-font-family;
+      text-align: center;
+      line-height: 2.5625rem;
+      font-size: 1.125rem;
+      color: $color-light-gray;
+      padding: 0 1.875rem;
+      &:before, &:after {
+        content: '';
+        position: absolute;
+        width: .4375rem;
+        height: .4375rem;
+        border-radius: 50%;
+        border: 1px solid $color-light-gray;
+        margin-top: 1.0625rem;
+      }
+      &:before {
+        left: 0;
+      }
+      &:after {
+        right: 0;
+      }
+    }
+  }
+  .no-tags {
+    padding: 2.5rem 0;
+    text-align: center;
+    line-height: 2.5rem;
+    color: $color-light-gray;
+  }
+  .tags-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1.25rem 0;
+    margin-left: -0.9375rem;
+    margin-top: -0.9375rem;
+    .tag {
+      margin: .9375rem 0 0 .9375rem;
+      padding: .3125rem 1.25rem;
+      border-radius: .625rem;
+      border: 1px solid $color-dark-gray;
+      cursor: pointer;
+      a {
+        display: block;
+        line-height: 2.5rem;
+        font-family: $title-font-family;
+        color: $color-dark-gray;
+      }
+      &.active, &:hover {
+        background-color: $color-dark-gray;
+        a {
+          color: white;
+        }
+      }
+    }
+  }
+  .articles-wrapper {
+    padding: 2.5rem 8.66rem;
+  }
+}

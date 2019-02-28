@@ -1,0 +1,179 @@
+@import '../../common/scss/mixins.scss';
+@import '../../common/scss/variables.scss';
+.admin-posts-main {
+  display: flex;
+  .posts-categories {
+    height: 100%;
+    width: 22.5rem;
+    overflow: auto;
+    background-color: $color-dir-bgcolor;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    .posts-category {
+      .category-title-wrapper {
+        @include flex-space-between;
+        padding: .875rem;
+        background-color: $color-dark-dir-bgcolor;
+        .post-page-icon {
+          display: block;
+          width: 1rem;
+          height: 1rem;
+        }
+        .category-title {
+          @include flex-align-item-center;
+          .admin-publish-icon {
+            @include bg-image-contain('../icons/publish.svg');
+          }
+          .admin-draft-icon {
+            @include bg-image-contain('../icons/draft.svg');
+          }
+          .admin-independent-page-icon {
+            @include bg-image-contain('../icons/independent-page.svg');
+          }
+          .admin-recycle-icon {
+            @include bg-image-contain('../icons/recycle.svg');
+          }
+          h2 {
+            margin-left: .375rem;
+            color: $color-admin-white;
+            font-weight: normal;
+            font-size: .875rem;
+          }
+        }
+        .admin-up-icon {
+          @include bg-image-contain('../icons/up.svg');
+          transition: transform .3s ease-in-out;
+          transform: rotate(-180deg);
+        }
+      }
+      .loading-wrapper {
+        padding: 1.25rem 0;
+        background-color: $color-light-dir-bgcolor;
+      }
+      .category-posts-list {
+        max-height: 0;
+        overflow: auto;
+        transition: max-height .3s ease-in-out;
+        background-color: $color-light-dir-bgcolor;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+        li {
+          padding: .625rem .9375rem;
+          color: $color-dir-content;
+          font-family: $meta-font-family;
+          cursor: pointer;
+          &.selected-post {
+            position: relative;
+            background-color: $dir-selected-post-bgcolor;
+            &:after {
+              content: '';
+              position: absolute;
+              width: 0;
+              height: 0;
+              border-color: transparent white transparent transparent;
+              border-style: solid;
+              border-width: .721669rem 1.25rem;
+              top: 50%;
+              transform: translateY(-50%);
+              right: 0;
+            }
+          }
+          &:not(:last-child) {
+            border-bottom: 1px solid $color-admin-white;
+          }
+          h3 {
+            font-weight: normal;
+            font-size: 1.125rem;
+            font-family: $title-font-family;
+            line-height: 1.5rem;
+            height: 3rem;
+            .icon {
+              float: right;
+              width: 1.125rem;
+              height: 1.125rem;
+              border-radius: 3px;
+              padding: .1875rem;
+              background-origin: content-box;
+              &:not(:first-child) {
+                margin-right: .3125rem;
+              }
+              &:hover {
+                background-color: rgba(0, 0, 0, .4);
+              }
+            }
+            .delete-post-icon {
+              @include bg-image-contain('../icons/del-post.svg');
+              &:hover {
+                @include bg-image-contain('../icons/del-post-active.svg');
+              }
+            }
+            .revoke-icon {
+              @include bg-image-contain('../icons/revoke.svg');
+              &:hover {
+                @include bg-image-contain('../icons/revoke-active.svg');
+              }
+            }
+            .recover-post-icon {
+              @include bg-image-contain('../icons/recover.svg');
+              &:hover {
+                @include bg-image-contain('../icons/recover-active.svg');
+              }
+            }
+          }
+          .modify-time-wrapper {
+            @include flex-space-between;
+            .post-modify-time {
+              font-size: .875rem;
+            }
+            .admin-edit-icon {
+              display: block;
+              width: 1.125rem;
+              height: 1.125rem;
+              padding: .1875rem;
+              background-origin: content-box;
+              @include bg-image-contain('../icons/edit.svg');
+              &:hover {
+                @include bg-image-contain('../icons/edit-active.svg');
+              }
+            }
+          }
+        }
+      }
+
+      &.open {
+        .category-posts-list {
+          max-height: 31.25rem;
+        }
+        .admin-up-icon {
+          transform: rotate(0deg);
+        }
+      }
+    }
+  }
+  .post-detail-wrapper {
+    position: relative;
+    width: calc(100% - 22.5rem);
+    min-height: 100%;
+    // border-left: 1px solid $color-dark-gray;
+    padding: 0 1.25rem;
+    overflow: auto;
+    .post-content-loading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+.modify-post-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  background-color: white;
+}

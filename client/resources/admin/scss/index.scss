@@ -1,0 +1,89 @@
+@import '../../common/scss/index.scss';
+@import '../../common/scss/mixins.scss';
+@import '../../common/scss/variables.scss';
+
+.admin-app {
+  & > aside {
+    position: fixed;
+    width: 3.75rem;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding-top: 1.25rem;
+    background-color: $color-admin-dark;
+    .admin-avatar-wrapper {
+      .admin-avatar {
+        display: block;
+        width: 3.125rem;
+        height: 3.125rem;
+        margin: 0 auto;
+        @include bg-image-contain('../../common/images/avatar.jpg');
+        border-radius: .3125rem;
+        border: 1px solid $color-admin-white;
+      }
+      .admin-username {
+        text-align: center;
+        font-size: .75rem;
+        line-height: 1.875rem;
+        color: $color-admin-white;
+      }
+    }
+    a {
+      display: block;
+      padding: 1.125rem;
+    }
+    .admin-icon {
+      display: block;
+      width: 1.5rem;
+      height: 1.5rem;
+      &.admin-add-icon {
+        @include bg-image-contain('../icons/add.svg');
+      }
+      &.admin-list-icon {
+        @include bg-image-contain('../icons/list.svg');
+      }
+      &.admin-visitors-icon {
+        @include bg-image-contain('../icons/visitor.svg');
+      }
+      &.admin-message-icon {
+        @include bg-image-contain('../icons/message.svg');
+      }
+      &.admin-login-out-icon {
+        @include bg-image-contain('../icons/login-out.svg');
+      }
+    }
+    li.active, a:hover {
+      .admin-icon {
+        &.admin-add-icon {
+          background-image: url(../icons/add-active.svg);
+        }
+        &.admin-list-icon {
+          background-image: url(../icons/list-active.svg);
+        }
+        &.admin-visitors-icon {
+          background-image: url(../icons/visitor-active.svg);
+        }
+        &.admin-message-icon {
+          background-image: url(../icons/message-active.svg);
+        }
+        &.admin-login-out-icon {
+          background-image: url(../icons/login-out-active.svg);
+        }
+      }
+    }
+    .login-out {
+      position: absolute;
+      width: 100%;
+      box-sizing: border-box;
+      left: 0;
+      bottom: 1.25rem;
+    }
+  }
+  .admin-main {
+    position: fixed;
+    top: 0;
+    left: 3.75rem;
+    bottom: 0;
+    right: 0;
+  }
+}

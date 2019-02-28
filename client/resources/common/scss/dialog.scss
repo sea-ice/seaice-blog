@@ -1,0 +1,77 @@
+@import './variables.scss';
+
+.dialog-wrapper {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  &.show {
+    display: block;
+  }
+  .dialog-mask {
+    height: 100%;
+    background-color: $color-dialog-mask;
+  }
+  .dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 32.5rem;
+    border-radius: .3125rem;
+    background-color: white;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    .dialog-header {
+      padding: .625rem 0 .3125rem;
+      .dialog-title {
+        text-align: center;
+        font-family: $title-font-family;
+        line-height: 2rem;
+        font-size: 1rem;
+      }
+    }
+    .dialog-main {
+      padding: .625rem 1.25rem;
+    }
+    .dialog-footer {
+      display: flex;
+      justify-content: flex-end;
+      padding: .75rem 1.5625rem .625rem;
+      .dialog-button {
+        display: block;
+        line-height: 2rem;
+        padding: 0 .9375rem;
+        border-radius: .3125rem;
+        font-size: .875rem;
+        &.dialog-confirm {
+          background-color: $color-admin-blue;
+          color: white;
+          &:hover {
+            background-color: $color-dark-blue;
+          }
+        }
+        &.dialog-cancel {
+          margin-left: .625rem;
+          border: 1px solid $color-cancel;
+          color: $color-cancel;
+          &:hover {
+            border-color: $color-light-gray;
+            background-color: $color-light-gray;
+            color: white;
+          }
+        }
+      }
+    }
+    &.bordered {
+      .dialog-header {
+        border-bottom: 1px solid $color-light-gray;
+      }
+      .dialog-footer {
+        border-top: 1px solid $color-light-gray;
+      }
+    }
+  }
+}

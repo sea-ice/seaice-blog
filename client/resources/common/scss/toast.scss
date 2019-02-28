@@ -1,0 +1,32 @@
+@import './mixins.scss';
+@import './variables.scss';
+
+.toast {
+  @include flex-space-between;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: .3125rem;
+  padding-left: .625rem;
+  border: 1px solid $color-light-gray;
+  border-radius: .3125rem;
+  background-color: white;
+  z-index: 10;
+  .toast-icon {
+    display: block;
+    width: 1.75rem;
+    height: 1.75rem;
+    &.toast-icon-success {
+      @include bg-image-contain('../../common/icons/done.svg');
+    }
+    &.toast-icon-error {
+      @include bg-image-contain('../../common/icons/error.svg');
+    }
+  }
+  .toast-text {
+    line-height: 1.75rem;
+    margin-left: .625rem;
+    font-size: .875rem;
+  }
+}

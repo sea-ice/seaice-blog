@@ -1,0 +1,91 @@
+@import '../../common/scss/mixins.scss';
+@import '../../common/scss/variables.scss';
+
+.paginator {
+  display: none;
+  &.show {
+    display: block;
+  }
+  .total-info {
+    text-align: center;
+    color: $color-light-gray;
+    font-size: .75rem;
+    font-family: $meta-font-family;
+  }
+  .paginator-operation {
+    display: none;
+    justify-content: center;
+    margin-top: 1.25rem;
+    font-family: $title-font-family;
+    &.show {
+      display: flex;
+    }
+    & > p {
+      padding: .625rem .9375rem;
+      &.page-button-wrapper {
+        display: flex;
+        position: relative;
+        &:after {
+          content: '';
+          position: absolute;
+          width: 1px;
+          height: 1.875rem;
+          background-color: $color-dark-gray;
+          margin-top: .3125rem;
+          right: 0px;
+        }
+        & > a {
+          display: block;
+          width: 2.5rem;
+          height: 2.5rem;
+          line-height: 2.5rem;
+          color: $color-dark-gray;
+          text-align: center;
+          &:not(:first-child) {
+            margin-left: .75rem;
+          }
+          &.prev-page, &.next-page {
+            font-size: .875rem;
+            &:not(.disabled):hover {
+              color: $active-font-color;
+            }
+            &.disabled {
+              pointer-events: none;
+              color: $color-light-gray;
+              cursor: not-allowed;
+            }
+          }
+          &.page-button {
+            border-radius: 50%;
+            border: 1px solid $color-dark-gray;
+            &:hover, &.active {
+              color: white;
+              background-color: $color-dark-gray;
+            }
+          }
+        }
+      }
+      &.turn-to-page {
+        line-height: 2.5rem;
+        color: $color-dark-gray;
+        .page-input {
+          width: 1.875rem;
+          font-size: 1.125rem;
+          font-family: $title-font-family;
+          outline: none;
+          border: none;
+          border-bottom: 1px solid $color-dark-gray;
+          text-align: center;
+          background-color: $app-wrapper-bgcolor;
+        }
+        .confirm-btn {
+          color: $color-dark-gray;
+          margin-left: .625rem;
+          &:hover {
+            color: $active-font-color;
+          }
+        }
+      }
+    }
+  }
+}

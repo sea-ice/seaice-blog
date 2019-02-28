@@ -1,0 +1,118 @@
+@import '../../common/scss/index.scss';
+@import '../../common/scss/mixins.scss';
+@import '../../common/scss/variables.scss';
+
+.app-wrapper {
+  width: 100%;
+  // margin: 0 auto;
+  background-color: $app-wrapper-bgcolor;
+  .app-header {
+    @include flex-space-between;
+    padding: .625rem 2.5rem .625rem 3rem;
+    // border-bottom: 1px solid $border-color-gray;
+    background-image: url(../images/header-bg.jpg);
+    background-size: cover;
+    margin-bottom: 2.5rem;
+    .site-title-wrapper {
+      color: $site-title-color;
+      .site-title {
+        font-family: $title-font-family;
+        font-size: 1.75rem;
+        font-weight: 500;
+      }
+      .site-description {
+        font-size: 1.25rem;
+      }
+    }
+    nav {
+      .nav-links {
+        display: flex;
+        li {
+          width: 5rem;
+          height: 3.75rem;
+          text-align: center;
+          a {
+            display: block;
+            line-height: 3.75rem;
+            font-size: .875rem;
+            color: $menu-link-color;
+          }
+        }
+      }
+    }
+  }
+  .main-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 3rem 5rem;
+    .app-main {
+      position: relative;
+      width: calc(100% - 17.5rem - 40px);
+      margin-right: 40px;
+      min-height: 44.6rem;
+      .normal-view, .search-view {
+        display: none;
+        &.show {
+          display: block;
+        }
+      }
+      .search-view {
+        .search-result-title, .error-text {
+          font-size: 1.125rem;
+          color: #999;
+        }
+        .search-result-title {
+          padding-bottom: 1.25rem;
+        }
+        .error-text {
+          padding-top: 7.5rem;
+          text-align: center;
+        }
+      }
+      .home-articles {
+        .no-page-data {
+          width: 17.5rem;
+          height: 17.5rem;
+          margin: 2.5rem auto;
+          @include bg-image-contain('../../../resources/common/icons/404.svg');
+        }
+      }
+      .paginator-wrapper {
+        margin-top: 1.875rem;
+      }
+    }
+  }
+  .app-footer {
+    padding: 1.25rem 0;
+    font-size: .75rem;
+    color: $color-dark-gray;
+    background-color: $app-footer-bgcolor;
+    p {
+      @include flex-align-item-center;
+      line-height: 1.125rem;
+      justify-content: center;
+      a {
+        color: $color-dark-gray;
+        &:hover {
+          color: $active-font-color;
+        }
+      }
+      .split-dot {
+        display: block;
+        width: .25rem;
+        height: .25rem;
+        margin: .3125rem;
+        border-radius: 50%;
+        background-color: $color-dark-gray;
+      }
+    }
+  }
+}
+
+// @import './aside.scss';
+// @import './home.scss';
+// @import './paginator.scss';
+// @import './archive.scss';
+// @import './tags.scss';
+@import "./media-query.scss";

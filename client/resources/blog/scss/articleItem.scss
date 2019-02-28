@@ -1,0 +1,69 @@
+@import "../../common/scss/variables.scss";
+@import "../../common/scss/mixins.scss";
+
+article {
+  .article-icons {
+    display: inline-block;
+    vertical-align: top;
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  .time-wrapper, .location-wrapper, .views-count-wrapper, .comment-count-wrapper {
+    @include flex-align-item-center;
+    .at-icon {
+      @include bg-image-contain('../icons/at.svg');
+    }
+    .location-icon {
+      @include bg-image-contain('../icons/location-special.svg');
+    }
+    .view-icon {
+      @include bg-image-contain('../icons/view.svg');
+    }
+    .comment-icon {
+      @include bg-image-contain('../icons/comment.svg');
+    }
+    time, span {
+      font-size: .875rem;
+      font-family: $meta-font-family;
+    }
+  }
+
+  header {
+    font-family: $title-font-family;
+    h1, h2 {
+      @include single-line-ellipsis;
+      font-weight: lighter;
+      font-size: 1.25rem;
+      a {
+        color: $article-item-title-color;
+      }
+    }
+    .article-tags-wrapper {
+      @include flex-align-item-center;
+      font-size: .875rem;
+      color: $color-dark-gray;
+      margin-top: .3125rem;
+      .tag-icon {
+        @include bg-image-contain('../icons/tag-special.svg');
+      }
+    }
+  }
+
+  &.article-item {
+    &:not(:first-child) {
+      margin-top: 3.25rem;
+    }
+    .article-excerpt {
+      font-family: $article-font-family;
+      line-height: 1.5rem;
+      margin-top: .625rem;
+      color: $article-font-color;
+      font-size: .875rem;
+    }
+
+    footer {
+      @include flex-space-between;
+      margin-top: .625rem;
+    }
+  }
+}
